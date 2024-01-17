@@ -1,0 +1,18 @@
+{
+  "name": "opentelemetry-js-sdk-to-seq",
+  "version": "1.0.0",
+  "description": "Javascript OpenTelemetry demo",
+  "author": "",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start-server": "node src/weather-server.js"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.7.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.40.3",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.47.0",
+    "@opentelemetry/instrumentation-http": "^0.47.0",
+    "@opentelemetry/resources": "*",
+    "@opentelemetry/sdk-trace-node": "*"
+  }
+}
