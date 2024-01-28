@@ -6,6 +6,7 @@ services:
       - seqclusterdemo
     volumes:
       - ./seq1init.sh:/seqinit/seq1init.sh
+      - ./seq1data:/data
     environment: 
       - ACCEPT_EULA=Y
     healthcheck:
@@ -22,6 +23,7 @@ services:
       - seqclusterdemo
     volumes:
       - ./seq2init.sh:/seqinit/seq2init.sh
+      - ./seq2data:/data
     environment: 
       - ACCEPT_EULA=Y
     healthcheck:
@@ -47,24 +49,6 @@ services:
       - apply 
       - --certificate=/data/cert.txt
       - -s http://seq1
-
-  seq2setlicense:
-    image: datalust/seqcli
-    networks:
-      - seqclusterdemo
-    depends_on:
-      seq2:
-        condition: service_healthy
-    restart: "no"
-    volumes:
-      - ./cert.txt:/data/cert.txt
-    entrypoint:
-      - /bin/seqcli/seqcli 
-      - license 
-      - apply 
-      - --certificate=/data/cert.txt
-      - -s http://seq2
-
 
   proxy:
     image: nginx

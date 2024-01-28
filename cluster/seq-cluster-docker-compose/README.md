@@ -25,4 +25,4 @@ Usage
 How it works
 ------------
 
-The `compose.yaml` defines a docker network with a Postgresql server, two Seq servers and an nginx server. The scripts `seq1init.sh` and `seq2init.sh` are mapped into their respective Seq containers and configure the leader (seq1) and the follower (seq2). Once `seq1` and `seq2` are healthy `seq1setlicense` and `seq2setlicense` use `seqcli` to apply the license certificate (`cert.txt`) to their respective servers. Nginx is configured as a round robin reverse proxy listening on `5666`, which is the only port exposed from the docker network. 
+The `compose.yaml` defines a docker network with a Postgresql server, two Seq servers and an nginx server. The scripts `seq1init.sh` and `seq2init.sh` are mapped into their respective Seq containers and configure the leader (seq1) and the follower (seq2). Once `seq1` and `seq2` are healthy `seq1setlicense` uses `seqcli` to apply the license certificate (`cert.txt`) to their respective servers. Nginx is configured as a round robin reverse proxy listening on `5666`, which is the only port exposed from the docker network. 
