@@ -4,7 +4,7 @@ using OpenTelemetry.Exporter;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 
-ActivitySource WeatherClientActivitySource = new("WeatherClient");
+using ActivitySource weatherClientActivitySource = new("WeatherClient");
 
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
     .AddSource("WeatherClient")
@@ -27,7 +27,7 @@ if (args.Length != 1)
 
 var postcode = args[0];
 
-using var activity = WeatherClientActivitySource.StartActivity("Request weather for postcode {Postcode}");
+using var activity = weatherClientActivitySource.StartActivity("Request weather for postcode {Postcode}");
 activity?.SetTag("Postcode", postcode);
 
 try
@@ -40,7 +40,10 @@ try
 }
 catch (Exception ex)
 {
-    //activity.Complete(LogEventLevel.Fatal, ex);
+    activity?.AddEvent(new ActivityEvent("exception", tags: new()
+    {
+        ["exception.stacktrace"] = ex.ToString()
+    }));
+    activity?.SetStatus(ActivityStatusCode.Error);
     return 1;
 }
-
