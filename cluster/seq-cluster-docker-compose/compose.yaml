@@ -9,6 +9,7 @@ services:
       - ./seq1data:/data
     ports:
       - 5399:80
+      - 1082:1082
     environment: 
       - ACCEPT_EULA=Y
       - "SEQ_METASTORE_POSTGRES_CONNECTIONSTRING=Server=pgseq;Port=5432;Database=seq;User Id=postgres;Password=terminatorx;"
@@ -35,6 +36,7 @@ services:
       - ./seq2data:/data
     ports:
       - 5398:80
+      - 1081:1081
     environment: 
       - ACCEPT_EULA=Y
       - 'SEQ_METASTORE_POSTGRES_CONNECTIONSTRING=Server=pgseq;Port=5432;Database=seq;Username=postgres;Password=terminatorx;'
@@ -49,7 +51,6 @@ services:
       timeout: 10s
       retries: 2
       start_period: 5s
-
 
   seq1setlicense:
     image: datalust/seqcli
