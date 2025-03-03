@@ -9,6 +9,9 @@ seqsvr config set -k storage.secretKey -v "$KEY"
 # seqsvr secret set -k metastore.postgres.connectionString -v "Host=pgseq;Port=5433;Database=seq;Username=postgres;Password=terminatorx"
 
 # this is the outside address of the load balancer (i.e. the port exposed by the `pgseq` service)
-# seqsvr config set -k api.canonicalUri -v "http://localhost:5666"
+seqsvr config set -k api.canonicalUri -v "http://localhost:5666"
 
+seqsvr node setup --cluster-listen ws://localhost:5344 --internal-api http://localhost --peer-cluster ws://seq2:5344 --peer-internal-api http://seq2 -k "verysecretkey" --node-name seq1
+
+seqsvr node lead
 
