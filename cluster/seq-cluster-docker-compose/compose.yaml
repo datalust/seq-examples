@@ -5,7 +5,6 @@ services:
     networks:
       - seqclusterdemo
     volumes:
-      - ./seq1init.sh:/seqinit/seq1init.sh
       - ./seq1data:/data
     ports:
       - 5399:80
@@ -13,11 +12,13 @@ services:
     environment: 
       - ACCEPT_EULA=Y
       - "SEQ_METASTORE_POSTGRES_CONNECTIONSTRING=Server=pgseq;Port=5432;Database=seq;User Id=postgres;Password=terminatorx;"
-      - SEQ_API_CANONICALURI=http://localhost:5666
+      - SEQ_API_CANONICALURI=http://nginx:5666
       - SEQ_CLUSTER_NODENAME=alpha
       - SEQ_CLUSTER_ISENABLED=true
       - SEQ_CLUSTER_CLUSTERLISTENURI=ws://seq1:1082
       - SEQ_CLUSTER_INTERNALAPIURI=http://seq1
+      - 'SEQ_STORAGE_SECRETKEY=lON57A+lulu9J1RKf8ft03FtOpepXJldYtsGLybHHP4='
+      - 'SEQ_DIAGNOSTICS_INTERNALLOGSERVERURL=http://seqdiagnostics'
     healthcheck:
       test: "/seqsvr/Client/seqcli node health -s http://localhost"
       interval: 15s
@@ -25,14 +26,12 @@ services:
       retries: 2
       start_period: 5s
 
-
   seq2:
     image: datalust/seq:preview
     hostname: seq2
     networks:
       - seqclusterdemo
     volumes:
-      - ./seq2init.sh:/seqinit/seq2init.sh
       - ./seq2data:/data
     ports:
       - 5398:80
@@ -40,11 +39,29 @@ services:
     environment: 
       - ACCEPT_EULA=Y
       - 'SEQ_METASTORE_POSTGRES_CONNECTIONSTRING=Server=pgseq;Port=5432;Database=seq;Username=postgres;Password=terminatorx;'
-      - SEQ_API_CANONICALURI=http://localhost:5666
+      - SEQ_API_CANONICALURI=http://nginx:5666
       - SEQ_CLUSTER_NODENAME=beta
       - SEQ_CLUSTER_ISENABLED=true
       - SEQ_CLUSTER_CLUSTERLISTENURI=ws://seq2:1081
       - SEQ_CLUSTER_INTERNALAPIURI=http://seq2
+      - 'SEQ_STORAGE_SECRETKEY=lON57A+lulu9J1RKf8ft03FtOpepXJldYtsGLybHHP4='
+      - 'SEQ_DIAGNOSTICS_INTERNALLOGSERVERURL=http://seqdiagnostics'
+    healthcheck:
+      test: "/seqsvr/Client/seqcli node health -s http://localhost"
+      interval: 15s
+      timeout: 10s
+      retries: 2
+      start_period: 5s
+
+  seqdiagnostics:
+    image: datalust/seq:preview
+    hostname: seqdiagnostics
+    networks:
+      - seqclusterdemo
+    ports:
+      - 80:80
+    environment: 
+      - ACCEPT_EULA=Y
     healthcheck:
       test: "/seqsvr/Client/seqcli node health -s http://localhost"
       interval: 15s
@@ -59,6 +76,8 @@ services:
     depends_on:
       seq1:
         condition: service_healthy
+      proxy:
+        condition: service_healthy      
     restart: "no"
     volumes:
       - ./cert.txt:/data/cert.txt
@@ -67,7 +86,28 @@ services:
       - license 
       - apply 
       - --certificate=/data/cert.txt
-      - -s http://seq1
+      - -s http://proxy:5666
+
+
+  sampleingestion:
+    image: datalust/seqcli
+    networks:
+      - seqclusterdemo
+    depends_on:
+      seq1:
+        condition: service_healthy
+      seq2:
+        condition: service_healthy
+      proxy:
+        condition: service_healthy      
+    restart: "no"
+    entrypoint:
+      - /bin/seqcli/seqcli 
+      - sample  
+      - ingest
+      - -y
+      - --quiet 
+      - -s http://proxy:5666
 
   proxy:
     image: nginx
@@ -82,6 +122,11 @@ services:
         condition: service_healthy
     ports:
       - "5666:5666"
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 5s
+      timeout: 4s
+      retries: 3
 
   pgseq:
     image: postgres:14
@@ -95,6 +140,45 @@ services:
       - POSTGRES_DB=seq
       - POSTGRES_PASSWORD=terminatorx
 
+  setdiagnostictitle:
+    image: curlimages/curl
+    networks:
+      - seqclusterdemo
+    restart: "no"
+    command: [
+      "curl", 
+      "http://seqdiagnostics/api/settings/setting-instancetitle", 
+      "-X", "PUT",
+      "-H", "Accept: application/json, text/plain",
+      "-H", "Content-Type: application/json;charset=utf-8",
+      "--data-raw",  "{\"Name\":\"instancetitle\",\"Value\":\"DIAGN\",\"Id\":\"setting-instancetitle\"}"
+    ]
+    depends_on: 
+      seqdiagnostics:
+        condition: service_healthy
+
+  enabledetailedtracing:
+    image: curlimages/curl
+    networks:
+      - seqclusterdemo
+    restart: "no"
+    command: [
+      "curl", 
+      "http://proxy:5666/api/users/user-admin",
+      "--retry", "5",
+      "--retry-delay", "30",
+      "-X", "PUT",
+      "-H", "Accept: application/json, text/plain",
+      "-H", "Content-Type: application/json;charset=utf-8",
+      "--data-raw",  "{\"Username\":\"admin\",\"DisplayName\":\"Administrator\",\"EmailAddress\":null,\"Preferences\":{\"DefaultWorkspaceId\":\"workspace-15\",\"BaseTheme\":\"dark-theme\",\"TraceQueries\":true,\"StartOfWeek\":0,\"RangeSelectorOptions\":\"\",\"NoEventPropertyViewFlattening\":false},\"RoleIds\":[\"role-administrator\"],\"Id\":\"user-admin\"}"
+    ]
+    depends_on: 
+      proxy:
+        condition: service_healthy
+      seq1:
+        condition: service_healthy
+      seq2:
+        condition: service_healthy
 
 networks:
   seqclusterdemo: {}
