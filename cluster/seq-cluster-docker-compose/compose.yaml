@@ -6,9 +6,6 @@ services:
       - seqclusterdemo
     volumes:
       - ./seq1data:/data
-    ports:
-      - 5399:80
-      - 1082:1082
     environment: 
       - ACCEPT_EULA=Y
       - "SEQ_METASTORE_POSTGRES_CONNECTIONSTRING=Server=pgseq;Port=5432;Database=seq;User Id=postgres;Password=terminatorx;"
@@ -33,9 +30,6 @@ services:
       - seqclusterdemo
     volumes:
       - ./seq2data:/data
-    ports:
-      - 5398:80
-      - 1081:1081
     environment: 
       - ACCEPT_EULA=Y
       - 'SEQ_METASTORE_POSTGRES_CONNECTIONSTRING=Server=pgseq;Port=5432;Database=seq;Username=postgres;Password=terminatorx;'
@@ -133,8 +127,6 @@ services:
     hostname: pgseq
     networks:
       - seqclusterdemo
-    ports:
-      - 5433:5432
     environment: 
       - POSTGRES_USER=postgres
       - POSTGRES_DB=seq
