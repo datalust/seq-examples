@@ -12,7 +12,7 @@ services:
     environment: 
       - ACCEPT_EULA=Y
       - "SEQ_METASTORE_POSTGRES_CONNECTIONSTRING=Server=pgseq;Port=5432;Database=seq;User Id=postgres;Password=terminatorx;"
-      - SEQ_API_CANONICALURI=http://nginx:5666
+      - SEQ_API_CANONICALURI=http://proxy:5666
       - SEQ_CLUSTER_NODENAME=alpha
       - SEQ_CLUSTER_ISENABLED=true
       - SEQ_CLUSTER_CLUSTERLISTENURI=ws://seq1:1082
@@ -39,7 +39,7 @@ services:
     environment: 
       - ACCEPT_EULA=Y
       - 'SEQ_METASTORE_POSTGRES_CONNECTIONSTRING=Server=pgseq;Port=5432;Database=seq;Username=postgres;Password=terminatorx;'
-      - SEQ_API_CANONICALURI=http://nginx:5666
+      - SEQ_API_CANONICALURI=http://proxy:5666
       - SEQ_CLUSTER_NODENAME=beta
       - SEQ_CLUSTER_ISENABLED=true
       - SEQ_CLUSTER_CLUSTERLISTENURI=ws://seq2:1081
