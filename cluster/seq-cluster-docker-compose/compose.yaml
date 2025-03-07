@@ -143,7 +143,7 @@ services:
       "-X", "PUT",
       "-H", "Accept: application/json, text/plain",
       "-H", "Content-Type: application/json;charset=utf-8",
-      "--data-raw",  "{\"Name\":\"instancetitle\",\"Value\":\"DIAGN\",\"Id\":\"setting-instancetitle\"}"
+      "--data-raw",  "{\"Name\":\"instancetitle\",\"Value\":\"DIAGNOSTICS\",\"Id\":\"setting-instancetitle\"}"
     ]
     depends_on: 
       seqdiagnostics:
