@@ -1,0 +1,139 @@
+{
+  "$entity": "dashboard",
+  "OwnerId": null,
+  "Title": "Overview",
+  "IsProtected": false,
+  "SignalExpression": null,
+  "Charts": [
+    {
+      "Title": "All Events",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "count(*)",
+              "Label": "count"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "SuppressLegend": false,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 8,
+        "HeightRows": 1
+      }
+    },
+    {
+      "Title": "Count by Level",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "count(*)",
+              "Label": "count"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Level"
+          ],
+          "DisplayStyle": {
+            "Type": "Pie",
+            "LineFillToZeroY": false,
+            "LineShowMarkers": true,
+            "BarOverlaySum": false,
+            "SuppressLegend": false,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 4,
+        "HeightRows": 1
+      }
+    },
+    {
+      "Title": "Errors and Exceptions",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "count(*)",
+              "Label": "count"
+            }
+          ],
+          "Where": "@Exception is not null or @Level in ['f', 'fa', 'fat', 'ftl', 'fata', 'fatl', 'fatal', 'c', 'cr', 'cri', 'crt', 'crit', 'critical', 'alert', 'emerg', 'panic', 'e', 'er', 'err', 'eror', 'erro', 'error'] ci",
+          "SignalExpression": null,
+          "GroupBy": [],
+          "DisplayStyle": {
+            "Type": "Bar",
+            "LineFillToZeroY": false,
+            "LineShowMarkers": true,
+            "BarOverlaySum": true,
+            "SuppressLegend": false,
+            "Palette": "Reds"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 8,
+        "HeightRows": 1
+      }
+    },
+    {
+      "Title": "Distinct Event Types",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "count(distinct(@EventType))",
+              "Label": "count"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [],
+          "DisplayStyle": {
+            "Type": "Value",
+            "LineFillToZeroY": false,
+            "LineShowMarkers": true,
+            "BarOverlaySum": false,
+            "SuppressLegend": false,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 4,
+        "HeightRows": 1
+      }
+    }
+  ]
+}

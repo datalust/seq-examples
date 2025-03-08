@@ -1,0 +1,264 @@
+{
+  "$entity": "dashboard",
+  "OwnerId": null,
+  "Title": "Microsoft.AspNetCore.Server.Kestrel Metrics",
+  "IsProtected": false,
+  "SignalExpression": {
+    "Kind": "Signal",
+    "SignalId": ref("signal-Columns.template")
+  },
+  "Charts": [
+    {
+      "Title": "kestrel.active_connections",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "min(kestrel.active_connections)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(kestrel.active_connections)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(kestrel.active_connections)",
+              "Label": "mean"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      }
+    },
+    {
+      "Title": "kestrel.active_tls_handshakes",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "min(kestrel.active_tls_handshakes)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(kestrel.active_tls_handshakes)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(kestrel.active_tls_handshakes)",
+              "Label": "mean"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      }
+    },
+    {
+      "Title": "kestrel.queued_connections",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "min(kestrel.queued_connections)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(kestrel.queued_connections)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(kestrel.queued_connections)",
+              "Label": "mean"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      }
+    },
+    {
+      "Title": "kestrel.queued_requests",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "min(kestrel.queued_requests)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(kestrel.queued_requests)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(kestrel.queued_requests)",
+              "Label": "mean"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      }
+    },
+    {
+      "Title": "kestrel.rejected_connections",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "min(kestrel.rejected_connections)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(kestrel.rejected_connections)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(kestrel.rejected_connections)",
+              "Label": "mean"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      }
+    },
+    {
+      "Title": "kestrel.upgraded_connections",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "min(kestrel.upgraded_connections)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(kestrel.upgraded_connections)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(kestrel.upgraded_connections)",
+              "Label": "mean"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      }
+    }
+  ]
+}

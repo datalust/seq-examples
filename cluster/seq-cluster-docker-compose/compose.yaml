@@ -179,21 +179,43 @@ services:
       retries: 3
 
   setdiagnostictitle:
-    image: curlimages/curl
+    image: datalust/seqcli
     networks:
       - seqclusterdemo
     restart: "no"
     command: [
-      "curl", 
-      "http://seqdiagnostics/api/settings/setting-instancetitle", 
-      "-X", "PUT",
-      "-H", "Accept: application/json, text/plain",
-      "-H", "Content-Type: application/json;charset=utf-8",
-      "--data-raw",  "{\"Name\":\"instancetitle\",\"Value\":\"DIAGNOSTICS\",\"Id\":\"setting-instancetitle\"}"
+      "setting", 
+      "set",
+      "-n",
+      "InstanceTitle",
+      "-v",
+      "Diagnostics",
+      "-s",
+      "http://seqdiagnostics"
     ]
     depends_on: 
       seqdiagnostics:
         condition: service_healthy
+
+  applydiagnostictemplates:
+    image: datalust/seqcli
+    networks:
+      - seqclusterdemo
+    volumes:
+      - ./templates:/templates
+    depends_on:
+      seqdiagnostics:
+        condition: service_healthy
+    restart: "no"
+    command: [
+      "template", 
+      "import",
+      "--input",
+      "/templates",
+      "--merge",
+      "-s",
+      "http://seqdiagnostics"
+    ]
 
   enabledetailedtracing:
     image: curlimages/curl
@@ -220,3 +242,4 @@ services:
 
 networks:
   seqclusterdemo: {}
+  
