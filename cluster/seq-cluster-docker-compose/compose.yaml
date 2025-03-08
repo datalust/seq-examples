@@ -2,6 +2,9 @@ services:
   seq1:
     image: datalust/seq:preview
     hostname: seq1
+    depends_on:
+      pgseq:
+        condition: service_healthy
     networks:
       - seqclusterdemo
     volumes:
@@ -26,6 +29,11 @@ services:
   seq2:
     image: datalust/seq:preview
     hostname: seq2
+    depends_on:
+      pgseq:
+        condition: service_healthy
+      seq1:
+        condition: service_healthy
     networks:
       - seqclusterdemo
     volumes:
@@ -53,7 +61,7 @@ services:
     networks:
       - seqclusterdemo
     ports:
-      - 80:80
+      - "5777:80"
     environment: 
       - ACCEPT_EULA=Y
     healthcheck:
@@ -74,12 +82,12 @@ services:
         condition: service_healthy      
     restart: "no"
     volumes:
-      - ./cert.txt:/data/cert.txt
+      - ./cert.txt:/cert.txt
     entrypoint:
       - /bin/seqcli/seqcli 
       - license 
       - apply 
-      - --certificate=/data/cert.txt
+      - --certificate=/cert.txt
       - -s http://proxy:5666
 
 
@@ -131,6 +139,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=seq
       - POSTGRES_PASSWORD=terminatorx
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-U", "postgres", "-d", "seq"]
+      interval: 5s
+      timeout: 4s
+      retries: 3
 
   setdiagnostictitle:
     image: curlimages/curl

@@ -31,4 +31,6 @@ The `compose.yaml` defines a docker network with:
 * a diagnostic Seq instance that receives telemetry from the cluster node
 * a number of other containers for running various `seqcli` and `curl` commands
 
-Nginx is configured (default.conf) as a round robin reverse proxy listening on `5666`, which is the only port exposed from the docker network. 
+Nginx is configured (default.conf) as a round robin reverse proxy listening on `5666`.
+
+The diagnostic instance is exposed on `5777`.
