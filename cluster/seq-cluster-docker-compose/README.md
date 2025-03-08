@@ -27,8 +27,10 @@ How it works
 The `compose.yaml` defines a docker network with:
 * a Postgresql server
 * two Seq servers in a cluster
-* an nginx server
+* an haproxy server
 * a diagnostic Seq instance that receives telemetry from the cluster node
 * a number of other containers for running various `seqcli` and `curl` commands
 
-Nginx is configured (default.conf) as a round robin reverse proxy listening on `5666`, which is the only port exposed from the docker network. 
+HAProxy is configured (`haproxy/haproxy.cfg`) as a round robin reverse proxy listening on `5666`.
+
+The diagnostic instance is exposed on `5777`.

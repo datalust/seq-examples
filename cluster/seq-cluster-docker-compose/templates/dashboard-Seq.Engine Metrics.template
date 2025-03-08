@@ -1,0 +1,310 @@
+{
+  "OwnerId": null,
+  "Title": "Seq.Engine Metrics",
+  "IsProtected": false,
+  "SignalExpression": {
+    "Kind": "Signal",
+    "SignalId": ref("signal-Metrics.template")
+  },
+  "Charts": [
+    {
+      "Id": null,
+      "Title": "broadcast_channel_input_queue_batches",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(broadcast_channel_input_queue_batches)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(broadcast_channel_input_queue_batches)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(broadcast_channel_input_queue_batches)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "broadcast_channel_input_queue_batches is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of event batches waiting in the broadcast channel's input queue."
+    },
+    {
+      "Id": null,
+      "Title": "broadcast_channel_subscriptions",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(broadcast_channel_subscriptions)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(broadcast_channel_subscriptions)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(broadcast_channel_subscriptions)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "broadcast_channel_subscriptions is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of active broadcast channel subscriptions."
+    },
+    {
+      "Id": null,
+      "Title": "data_store_queries",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(data_store_queries)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "data_store_queries is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "Seq query language queries and searches; this will include most internal and external traffic, but not direct NQL execution."
+    },
+    {
+      "Id": null,
+      "Title": "indexing_time (ms)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(indexing_time)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "indexing_time is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "Time spent computing indexes, recorded at the completion of indexing."
+    },
+    {
+      "Id": null,
+      "Title": "indexing_time_last_day (ms)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(indexing_time_last_day)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(indexing_time_last_day)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(indexing_time_last_day)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "indexing_time_last_day is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "Time spent computing indexes, recorded at the completion of indexing (last day)."
+    },
+    {
+      "Id": null,
+      "Title": "write_time (ms)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(write_time)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "write_time is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "Time spent committing events to disk."
+    },
+    {
+      "Id": null,
+      "Title": "write_time_last_day (ms)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(write_time_last_day)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(write_time_last_day)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(write_time_last_day)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "write_time_last_day is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "Time spent committing events to disk (last day)."
+    }
+  ],
+  "$entity": "dashboard"
+}

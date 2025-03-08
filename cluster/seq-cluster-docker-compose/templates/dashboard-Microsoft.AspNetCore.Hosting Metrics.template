@@ -1,0 +1,54 @@
+{
+  "$entity": "dashboard",
+  "OwnerId": null,
+  "Title": "Microsoft.AspNetCore.Hosting Metrics",
+  "IsProtected": false,
+  "SignalExpression": {
+    "Kind": "Signal",
+    "SignalId": ref("signal-Columns.template")
+  },
+  "Charts": [
+    {
+      "Title": "http.server.active_requests",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Measurements": [
+            {
+              "Value": "min(http.server.active_requests)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(http.server.active_requests)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(http.server.active_requests)",
+              "Label": "mean"
+            }
+          ],
+          "Where": null,
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      }
+    }
+  ]
+}

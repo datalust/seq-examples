@@ -1,0 +1,774 @@
+{
+  "OwnerId": null,
+  "Title": "Seq.Cluster.Node Metrics",
+  "IsProtected": false,
+  "SignalExpression": {
+    "Kind": "Signal",
+    "SignalId": ref("signal-Metrics.template")
+  },
+  "Charts": [
+    {
+      "Id": null,
+      "Title": "became_candidate",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(became_candidate)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "became_candidate is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node transitioned to the candidate state"
+    },
+    {
+      "Id": null,
+      "Title": "became_follower",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(became_follower)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "became_follower is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node transitioned to the follower state"
+    },
+    {
+      "Id": null,
+      "Title": "became_leader",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(became_leader)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "became_leader is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node transitioned to the leader state"
+    },
+    {
+      "Id": null,
+      "Title": "became_offline",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(became_offline)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "became_offline is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node transitioned to the offline state"
+    },
+    {
+      "Id": null,
+      "Title": "became_stopping",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(became_stopping)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "became_stopping is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node transitioned to the stopping state"
+    },
+    {
+      "Id": null,
+      "Title": "became_suspended",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(became_suspended)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "became_suspended is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node transitioned to the suspended state"
+    },
+    {
+      "Id": null,
+      "Title": "cluster_member_count",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(cluster_member_count)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(cluster_member_count)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(cluster_member_count)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "cluster_member_count is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of active cluster nodes identified by their name."
+    },
+    {
+      "Id": null,
+      "Title": "cumulative_heartbeat_time (ms)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(cumulative_heartbeat_time)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "cumulative_heartbeat_time is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total time taken for the Seq node to update its state in the shared consensus database."
+    },
+    {
+      "Id": null,
+      "Title": "fresh_cluster_member_count",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(fresh_cluster_member_count)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(fresh_cluster_member_count)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(fresh_cluster_member_count)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "fresh_cluster_member_count is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of active cluster nodes with data age better than 5 seconds. This includes the leader node itself."
+    },
+    {
+      "Id": null,
+      "Title": "heartbeat_error",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(heartbeat_error)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "heartbeat_error is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Reds"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node was unable to update its state in the shared consensus database."
+    },
+    {
+      "Id": null,
+      "Title": "heartbeat_success",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(heartbeat_success)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "heartbeat_success is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node was able to update its state in the shared consensus database."
+    },
+    {
+      "Id": null,
+      "Title": "leader_identified",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(leader_identified)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "leader_identified is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node identified another node as being the current cluster leader."
+    },
+    {
+      "Id": null,
+      "Title": "leadership_lease_obtained",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(leadership_lease_obtained)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "leadership_lease_obtained is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node acquired or extended its lease as cluster leader."
+    },
+    {
+      "Id": null,
+      "Title": "membership_cleaned",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(membership_cleaned)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "membership_cleaned is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node cleaned expired cluster members from the shared membership database."
+    },
+    {
+      "Id": null,
+      "Title": "membership_table_size",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(membership_table_size)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(membership_table_size)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(membership_table_size)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "membership_table_size is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of active cluster node entries observed in the shared membership database."
+    },
+    {
+      "Id": null,
+      "Title": "reactivated",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(reactivated)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "reactivated is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node transitioned from suspended to leader state"
+    },
+    {
+      "Id": null,
+      "Title": "replicated_data_age (ms)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(replicated_data_age)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(replicated_data_age)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(replicated_data_age)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "replicated_data_age is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of milliseconds since the most up-to-date cluster node last synchronized."
+    },
+    {
+      "Id": null,
+      "Title": "up_to_date_cluster_member_count",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(up_to_date_cluster_member_count)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(up_to_date_cluster_member_count)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(up_to_date_cluster_member_count)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "up_to_date_cluster_member_count is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of active cluster nodes that carry precisely the same data as the leader node. This includes the leader node itself. This value is important during graceful fail-over, but is not useful otherwise because of regular fluctuations owing to propagation of the cluster informational generation."
+    },
+    {
+      "Id": null,
+      "Title": "vacancy_observed",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(vacancy_observed)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "vacancy_observed is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The Seq node identified that no node is currently leading the cluster."
+    }
+  ],
+  "$entity": "dashboard"
+}

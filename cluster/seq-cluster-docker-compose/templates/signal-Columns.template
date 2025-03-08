@@ -1,0 +1,22 @@
+{
+  "$entity": "signal",
+  "Title": "Columns",
+  "Description": "Created by `admin`",
+  "Filters": [],
+  "Columns": [
+    {
+      "Expression": "@Resource.seq.node.name"
+    },
+    {
+      "Expression": "NodeName"
+    },
+    {
+      "Expression": "vertex_origin"
+    }
+  ],
+  "IsProtected": false,
+  "IsIndexSuppressed": true,
+  "Grouping": "Inferred",
+  "ExplicitGroupName": null,
+  "OwnerId": null
+}
