@@ -1,0 +1,462 @@
+{
+  "OwnerId": null,
+  "Title": "Seq.Server Metrics",
+  "IsProtected": false,
+  "SignalExpression": {
+    "Kind": "Signal",
+    "SignalId": ref("signal-Metrics.template")
+  },
+  "Charts": [
+    {
+      "Id": null,
+      "Title": "arrived_events",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(arrived_events)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "arrived_events is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of events arrived at an ingestion endpoint. These include only valid/authorized payloads, prior to any ingestion rules/filters being applied."
+    },
+    {
+      "Id": null,
+      "Title": "average_event_body (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(average_event_body)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(average_event_body)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(average_event_body)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "average_event_body is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The average event body ingested in the past minute."
+    },
+    {
+      "Id": null,
+      "Title": "failed_otlp_metric_exports",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(failed_otlp_metric_exports)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "failed_otlp_metric_exports is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Reds"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of failed attempts to export Seq metrics via OTLP."
+    },
+    {
+      "Id": null,
+      "Title": "ingested_data (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(ingested_data)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "ingested_data is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total size of the events actually ingested."
+    },
+    {
+      "Id": null,
+      "Title": "ingested_events",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(ingested_events)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "ingested_events is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of events actually ingested."
+    },
+    {
+      "Id": null,
+      "Title": "ingestion_endpoint_active_requests",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(ingestion_endpoint_active_requests)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(ingestion_endpoint_active_requests)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(ingestion_endpoint_active_requests)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "ingestion_endpoint_active_requests is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of active requests being processed by the HTTP ingestion endpoint."
+    },
+    {
+      "Id": null,
+      "Title": "invalid_payloads",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(invalid_payloads)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "invalid_payloads is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number authorized payloads that were rejected because of format or validation issues."
+    },
+    {
+      "Id": null,
+      "Title": "query_canceled",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(query_canceled)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "query_canceled is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of queries processed by the HTTP query endpoint that resulted in cancellation. These are normally due to, and reported as, the query exceeding its allowed execution time, but may also be a result of server restarts."
+    },
+    {
+      "Id": null,
+      "Title": "query_endpoint_active_requests",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(query_endpoint_active_requests)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(query_endpoint_active_requests)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(query_endpoint_active_requests)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "query_endpoint_active_requests is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of active requests being processed by the HTTP query endpoint."
+    },
+    {
+      "Id": null,
+      "Title": "unauthorized_payloads",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "sum(unauthorized_payloads)",
+              "Label": "sum_of_deltas"
+            }
+          ],
+          "Where": "unauthorized_payloads is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": true,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of payloads rejected because of missing or inadequate authorization."
+    },
+    {
+      "Id": null,
+      "Title": "write_throughput (bytes/second)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(write_throughput)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(write_throughput)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(write_throughput)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "write_throughput is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The average throughput for writes in the past minute."
+    }
+  ],
+  "$entity": "dashboard"
+}

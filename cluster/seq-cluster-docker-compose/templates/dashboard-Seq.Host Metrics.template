@@ -1,0 +1,932 @@
+{
+  "OwnerId": null,
+  "Title": "Seq.Host Metrics",
+  "IsProtected": false,
+  "SignalExpression": {
+    "Kind": "Signal",
+    "SignalId": ref("signal-Metrics.template")
+  },
+  "Charts": [
+    {
+      "Id": null,
+      "Title": "dotnet_gc_memory_fragmented (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(dotnet_gc_memory_fragmented)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(dotnet_gc_memory_fragmented)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(dotnet_gc_memory_fragmented)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "dotnet_gc_memory_fragmented is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The amount of fragmentation in the .NET heap."
+    },
+    {
+      "Id": null,
+      "Title": "dotnet_gc_memory_total (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(dotnet_gc_memory_total)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(dotnet_gc_memory_total)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(dotnet_gc_memory_total)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "dotnet_gc_memory_total is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total memory in use by the .NET heap."
+    },
+    {
+      "Id": null,
+      "Title": "dotnet_gc_memory_used (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(dotnet_gc_memory_used)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(dotnet_gc_memory_used)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(dotnet_gc_memory_used)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "dotnet_gc_memory_used is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The memory in use by the .NET heap, excluding fragmentation."
+    },
+    {
+      "Id": null,
+      "Title": "dotnet_gc_pause_time (%)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(dotnet_gc_pause_time)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(dotnet_gc_pause_time)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(dotnet_gc_pause_time)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "dotnet_gc_pause_time is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The proportion of process runtime spent in GC."
+    },
+    {
+      "Id": null,
+      "Title": "dotnet_thread_pool_current_threads",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(dotnet_thread_pool_current_threads)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(dotnet_thread_pool_current_threads)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(dotnet_thread_pool_current_threads)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "dotnet_thread_pool_current_threads is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of threads currently in the shared .NET thread pool."
+    },
+    {
+      "Id": null,
+      "Title": "dotnet_thread_pool_iocp_threads_available",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(dotnet_thread_pool_iocp_threads_available)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(dotnet_thread_pool_iocp_threads_available)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(dotnet_thread_pool_iocp_threads_available)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "dotnet_thread_pool_iocp_threads_available is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of IO completion port threads available in the shared .NET thread pool."
+    },
+    {
+      "Id": null,
+      "Title": "dotnet_thread_pool_threads_available",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(dotnet_thread_pool_threads_available)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(dotnet_thread_pool_threads_available)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(dotnet_thread_pool_threads_available)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "dotnet_thread_pool_threads_available is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of threads available in the shared .NET thread pool."
+    },
+    {
+      "Id": null,
+      "Title": "free_disk_space (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(free_disk_space)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(free_disk_space)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(free_disk_space)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "free_disk_space is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The amount of unused disk space on Seq's storage volume."
+    },
+    {
+      "Id": null,
+      "Title": "process_cpu_current (%)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_cpu_current)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_cpu_current)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_cpu_current)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_cpu_current is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The percentage of system CPU used by the current process"
+    },
+    {
+      "Id": null,
+      "Title": "process_handles",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_handles)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_handles)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_handles)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_handles is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of handles in use by the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_memory_non_paged (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_memory_non_paged)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_memory_non_paged)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_memory_non_paged)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_memory_non_paged is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total amount of non-paged memory by the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_memory_paged (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_memory_paged)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_memory_paged)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_memory_paged)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_memory_paged is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total amount of paged memory by the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_memory_physical (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_memory_physical)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_memory_physical)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_memory_physical)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_memory_physical is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total physical memory allocated by the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_memory_private (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_memory_private)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_memory_private)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_memory_private)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_memory_private is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total amount of private memory by the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_memory_system_non_paged (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_memory_system_non_paged)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_memory_system_non_paged)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_memory_system_non_paged)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_memory_system_non_paged is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total amount of non-paged system memory by the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_memory_system_paged (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_memory_system_paged)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_memory_system_paged)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_memory_system_paged)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_memory_system_paged is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total amount of paged system memory by the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_memory_virtual (bytes)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_memory_virtual)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_memory_virtual)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_memory_virtual)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_memory_virtual is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total amount of virtual memory by the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_threads",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_threads)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_threads)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_threads)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_threads is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The number of threads running in the current process."
+    },
+    {
+      "Id": null,
+      "Title": "process_uptime (ms)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(process_uptime)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(process_uptime)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(process_uptime)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "process_uptime is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The time elapsed since the current Seq process started."
+    },
+    {
+      "Id": null,
+      "Title": "system_memory_utilized (%)",
+      "SignalExpression": null,
+      "Queries": [
+        {
+          "Id": null,
+          "Measurements": [
+            {
+              "Value": "min(system_memory_utilized)",
+              "Label": "min"
+            },
+            {
+              "Value": "max(system_memory_utilized)",
+              "Label": "max"
+            },
+            {
+              "Value": "mean(system_memory_utilized)",
+              "Label": "mean"
+            }
+          ],
+          "Where": "system_memory_utilized is not null",
+          "SignalExpression": null,
+          "GroupBy": [
+            "@Resource.seq.node.name"
+          ],
+          "DisplayStyle": {
+            "Type": "Line",
+            "LineFillToZeroY": true,
+            "LineShowMarkers": false,
+            "BarOverlaySum": false,
+            "UseLogarithmicScale": false,
+            "SuppressLegend": true,
+            "Palette": "Default"
+          },
+          "Having": null,
+          "OrderBy": [],
+          "Limit": null
+        }
+      ],
+      "DisplayStyle": {
+        "WidthColumns": 3,
+        "HeightRows": 1
+      },
+      "Description": "The total amount of virtual memory by the current process."
+    }
+  ],
+  "$entity": "dashboard"
+}
