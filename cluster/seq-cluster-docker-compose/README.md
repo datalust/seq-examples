@@ -19,7 +19,7 @@ Usage
 1. Purchase [Seq Datacenter](https://datalust.co/pricing) or [start a trial](https://datalust.co/trial)
 1. Copy license certificate into a file called `cert.txt`
 1. `docker compose up`
-1. Browse [`http://localhost:5666`](http://localhost:5666)
+1. Browse [`http://localhost:5666`](http://localhost:5666) for Seq, [`http://localhost:5777`](http://localhost:5777) for the Seq diagnostic instance and [`http://localhost:8404/stats`](http://localhost:8404/stats) for the HAProxy dashboard.
 
 How it works
 ------------
