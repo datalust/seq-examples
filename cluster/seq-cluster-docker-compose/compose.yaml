@@ -173,7 +173,7 @@ services:
       - POSTGRES_DB=seq
       - POSTGRES_PASSWORD=terminatorx
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready", "-U", "postgres", "-d", "seq"]
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "seq"]
       interval: 5s
       timeout: 4s
       retries: 3
@@ -183,16 +183,16 @@ services:
     networks:
       - seqclusterdemo
     restart: "no"
-    command: [
-      "setting", 
-      "set",
-      "-n",
-      "InstanceTitle",
-      "-v",
-      "Diagnostics",
-      "-s",
-      "http://seqdiagnostics"
-    ]
+    entrypoint:
+      - /bin/seqcli/seqcli 
+      - setting  
+      - set
+      - -n
+      - InstanceTitle
+      - -v
+      - Diagnostics
+      - -s 
+      - http://seqdiagnostics
     depends_on: 
       seqdiagnostics:
         condition: service_healthy
@@ -207,15 +207,15 @@ services:
       seqdiagnostics:
         condition: service_healthy
     restart: "no"
-    command: [
-      "template", 
-      "import",
-      "--input",
-      "/templates",
-      "--merge",
-      "-s",
-      "http://seqdiagnostics"
-    ]
+    entrypoint:
+      - /bin/seqcli/seqcli 
+      - template  
+      - import
+      - --input
+      - /templates
+      - --merge
+      - -s 
+      - http://seqdiagnostics
 
   enabledetailedtracing:
     image: curlimages/curl
